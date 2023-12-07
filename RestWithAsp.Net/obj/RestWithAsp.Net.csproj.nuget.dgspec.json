@@ -41,9 +41,23 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Asp.Versioning.Mvc": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
