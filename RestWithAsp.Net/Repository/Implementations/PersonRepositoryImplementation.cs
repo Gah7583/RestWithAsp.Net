@@ -2,13 +2,13 @@
 using RestWithAsp.Net.Model;
 using System.Security.Cryptography;
 
-namespace RestWithAsp.Net.Services.Implementations
+namespace RestWithAsp.Net.Repository.Implementations
 {
-    public class PersonServiceImplementation : IPersonService
+    public class PersonRepositoryImplementation : IPersonRepository
     {
         private readonly RestWithAspDotNetContext _context;
 
-        public PersonServiceImplementation(RestWithAspDotNetContext context) 
+        public PersonRepositoryImplementation(RestWithAspDotNetContext context) 
         {
             _context = context;
         }
@@ -39,7 +39,7 @@ namespace RestWithAsp.Net.Services.Implementations
 
         public Person Update(Person person)
         {
-            if (!Exists(person.Id)) return new Person();
+            if (!Exists(person.Id)) return null;
 
             var result = FindById(person.Id);
             if (result != null)
@@ -75,7 +75,7 @@ namespace RestWithAsp.Net.Services.Implementations
             }
         }
 
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Persons.Any(person => person.Id.Equals(id));
         }

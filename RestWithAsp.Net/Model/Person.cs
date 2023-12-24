@@ -5,15 +5,16 @@ namespace RestWithAsp.Net.Model
 {
     public class Person
     {
-        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         [StringLength(80)]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         [StringLength(80)]
         public string LastName { get; set; }
 
