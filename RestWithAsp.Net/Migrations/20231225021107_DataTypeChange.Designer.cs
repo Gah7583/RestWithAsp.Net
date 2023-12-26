@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestWithAsp.Net.Data;
+using RestWithAsp.Net.Model.Context;
 
 #nullable disable
 
 namespace RestWithAsp.Net.Migrations
 {
     [DbContext(typeof(RestWithAspDotNetContext))]
-    [Migration("20231224105406_Initial")]
-    partial class Initial
+    [Migration("20231225021107_DataTypeChange")]
+    partial class DataTypeChange
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,26 +29,31 @@ namespace RestWithAsp.Net.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Author")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Author");
 
                     b.Property<DateTime>("LaunchDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Launch Date");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(20, 2)
-                        .HasColumnType("decimal(20,2)");
+                        .HasColumnType("decimal(20,2)")
+                        .HasColumnName("Price");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Title");
 
                     b.HasKey("Id");
 
@@ -99,31 +104,36 @@ namespace RestWithAsp.Net.Migrations
 
             modelBuilder.Entity("RestWithAsp.Net.Model.Person", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Address");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasColumnType("nvarchar(80)")
+                        .HasColumnName("First Name");
 
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasMaxLength(6)
-                        .HasColumnType("nvarchar(6)");
+                        .HasColumnType("nvarchar(6)")
+                        .HasColumnName("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasColumnType("nvarchar(80)")
+                        .HasColumnName("Last Name");
 
                     b.HasKey("Id");
 
@@ -132,7 +142,7 @@ namespace RestWithAsp.Net.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1L,
+                            Id = 1,
                             Address = "São Paulo - Brasil",
                             FirstName = "Ayrton",
                             Gender = "Male",
@@ -140,7 +150,7 @@ namespace RestWithAsp.Net.Migrations
                         },
                         new
                         {
-                            Id = 2L,
+                            Id = 2,
                             Address = "Anchiano - Italy",
                             FirstName = "Leonardo",
                             Gender = "Male",
@@ -148,7 +158,7 @@ namespace RestWithAsp.Net.Migrations
                         },
                         new
                         {
-                            Id = 3L,
+                            Id = 3,
                             Address = "Porbandar - India",
                             FirstName = "Mahatma",
                             Gender = "Male",
@@ -156,7 +166,7 @@ namespace RestWithAsp.Net.Migrations
                         },
                         new
                         {
-                            Id = 4L,
+                            Id = 4,
                             Address = "Kentuky - USA",
                             FirstName = "Mohamed",
                             Gender = "Male",
@@ -164,7 +174,7 @@ namespace RestWithAsp.Net.Migrations
                         },
                         new
                         {
-                            Id = 5L,
+                            Id = 5,
                             Address = "Mvezo - South Africa",
                             FirstName = "Nelson",
                             Gender = "Male",

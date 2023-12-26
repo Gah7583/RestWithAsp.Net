@@ -1,7 +1,8 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAsp.Net.Business;
-using RestWithAsp.Net.Model;
+using RestWithAsp.Net.Data.VO;
+using RestWithAsp.Net.Hypermedia.Filters;
 
 namespace RestWithAsp.Net.Controllers
 {
@@ -19,6 +20,7 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpGet]
         [MapToApiVersion("1")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get() 
         {
             return Ok(_bookBusiness.GetBooks());
@@ -26,6 +28,7 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpGet("{id}")]
         [MapToApiVersion("1")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
             var book = _bookBusiness.GetById(id);
@@ -35,7 +38,8 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpPost]
         [MapToApiVersion("1")]
-        public IActionResult Post([FromBody] Book book)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Create(book));
@@ -43,7 +47,8 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpPut]
         [MapToApiVersion("1")]
-        public IActionResult Put([FromBody] Book book)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_bookBusiness.Update(book));

@@ -1,7 +1,8 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
-using RestWithAsp.Net.Model;
 using RestWithAsp.Net.Business;
+using RestWithAsp.Net.Data.VO;
+using RestWithAsp.Net.Hypermedia.Filters;
 
 namespace RestWithAsp.Net.Controllers
 {
@@ -19,6 +20,7 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpGet]
         [MapToApiVersion("1")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_personBusiness.FindAll());
@@ -26,7 +28,8 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpGet("{id}")]
         [MapToApiVersion("1")]
-        public IActionResult Get(long id)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get(int id)
         {
             var person = _personBusiness.FindById(id);
             if (person == null) return NotFound();
@@ -35,7 +38,8 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpPost]
         [MapToApiVersion("1")]
-        public IActionResult Post([FromBody] Person person)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             return Ok(_personBusiness.Create(person));
@@ -43,7 +47,8 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpPut]
         [MapToApiVersion("1")]
-        public IActionResult Put([FromBody] Person person)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Put([FromBody] PersonVO person)
         { 
             if (person == null) return BadRequest();
             return Ok(_personBusiness.Update(person));
@@ -51,7 +56,7 @@ namespace RestWithAsp.Net.Controllers
 
         [HttpDelete]
         [MapToApiVersion("1")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(int id)
         {
             _personBusiness.Delete(id);
             return NoContent();

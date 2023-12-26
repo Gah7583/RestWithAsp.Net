@@ -1,13 +1,13 @@
-﻿using RestWithAsp.Net.Model;
+﻿using RestWithAsp.Net.Data.VO;
 
 namespace RestWithAsp.Net.Business
 {
     public interface IPersonBusiness
     {
-        Person Create(Person person);
-        Person Update(Person person);
-        List<Person> FindAll();
-        Person FindById(long id);
-        void Delete(long id);
+        PersonVO Create(PersonVO person);
+        PersonVO Update(PersonVO person);
+        List<PersonVO> FindAll();
+        PersonVO FindById(int id);
+        void Delete(int id);
     }
 }

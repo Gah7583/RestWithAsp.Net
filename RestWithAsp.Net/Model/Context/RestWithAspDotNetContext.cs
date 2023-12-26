@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestWithAsp.Net.Model;
 
-namespace RestWithAsp.Net.Data
+namespace RestWithAsp.Net.Model.Context
 {
     public class RestWithAspDotNetContext : DbContext
     {

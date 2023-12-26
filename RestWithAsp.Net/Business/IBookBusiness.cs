@@ -1,13 +1,13 @@
-﻿using RestWithAsp.Net.Model;
+﻿using RestWithAsp.Net.Data.VO;
 
 namespace RestWithAsp.Net.Business
 {
     public interface IBookBusiness
     {
-        Book Create(Book book);
-        Book Update(Book book);
-        List<Book> GetBooks();
-        Book GetById(int id);
+        BookVO Create(BookVO book);
+        BookVO Update(BookVO book);
+        List<BookVO> GetBooks();
+        BookVO GetById(int id);
         void Delete(int id);
 
     }

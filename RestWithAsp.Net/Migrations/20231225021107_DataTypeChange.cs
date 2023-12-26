@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RestWithAsp.Net.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class DataTypeChange : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace RestWithAsp.Net.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Author = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    LaunchDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LaunchDate = table.Column<DateTime>(name: "Launch Date", type: "datetime2", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(20,2)", precision: 20, scale: 2, nullable: false)
                 },
                 constraints: table =>
@@ -33,10 +33,10 @@ namespace RestWithAsp.Net.Migrations
                 name: "Persons",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    FirstName = table.Column<string>(name: "First Name", type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    LastName = table.Column<string>(name: "Last Name", type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(6)", maxLength: 6, nullable: false)
                 },
@@ -47,7 +47,7 @@ namespace RestWithAsp.Net.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "Id", "Author", "LaunchDate", "Price", "Title" },
+                columns: new[] { "Id", "Author", "Launch Date", "Price", "Title" },
                 values: new object[,]
                 {
                     { 1, "Michael C. Feathers", new DateTime(2017, 11, 29, 13, 50, 5, 878, DateTimeKind.Unspecified), 49.00m, "Working effectively with legacy code" },
@@ -59,14 +59,14 @@ namespace RestWithAsp.Net.Migrations
 
             migrationBuilder.InsertData(
                 table: "Persons",
-                columns: new[] { "Id", "Address", "FirstName", "Gender", "LastName" },
+                columns: new[] { "Id", "Address", "First Name", "Gender", "Last Name" },
                 values: new object[,]
                 {
-                    { 1L, "São Paulo - Brasil", "Ayrton", "Male", "Senna" },
-                    { 2L, "Anchiano - Italy", "Leonardo", "Male", "da Vinci" },
-                    { 3L, "Porbandar - India", "Mahatma", "Male", "Gandhi" },
-                    { 4L, "Kentuky - USA", "Mohamed", "Male", "Ali" },
-                    { 5L, "Mvezo - South Africa", "Nelson", "Male", "Mandela" }
+                    { 1, "São Paulo - Brasil", "Ayrton", "Male", "Senna" },
+                    { 2, "Anchiano - Italy", "Leonardo", "Male", "da Vinci" },
+                    { 3, "Porbandar - India", "Mahatma", "Male", "Gandhi" },
+                    { 4, "Kentuky - USA", "Mohamed", "Male", "Ali" },
+                    { 5, "Mvezo - South Africa", "Nelson", "Male", "Mandela" }
                 });
         }
 
