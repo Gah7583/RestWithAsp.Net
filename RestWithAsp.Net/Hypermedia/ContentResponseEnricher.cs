@@ -38,7 +38,7 @@ namespace RestWithAsp.Net.Hypermedia
                 }
                 else if (okObjectResult.Value is List<T> collection)
                 {
-                    ConcurrentBag<T> bag = new ConcurrentBag<T>(collection);
+                    ConcurrentBag<T> bag = new(collection);
                     Parallel.ForEach(bag, (element) =>
                     {
                         EnrichModel(element, urlHelper);

@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAsp.Net.Business;
 using RestWithAsp.Net.Data.VO;
@@ -9,6 +10,7 @@ namespace RestWithAsp.Net.Controllers
     [Route("api/[controller]/v{version:ApiVersion}")]
     [ApiController]
     [ApiVersion("1")]
+    [Authorize("Bearer")]
     public class PersonController : ControllerBase
     {
         private readonly IPersonBusiness _personBusiness;
@@ -19,6 +21,10 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
@@ -27,6 +33,10 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
@@ -37,6 +47,9 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO person)
@@ -46,6 +59,10 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(PersonVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PersonVO person)
@@ -55,6 +72,9 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpDelete]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         public IActionResult Delete(int id)
         {

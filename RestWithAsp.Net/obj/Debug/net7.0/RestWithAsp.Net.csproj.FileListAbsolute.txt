@@ -77,3 +77,4 @@ D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\runtimes\w
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versioning.Abstractions.dll
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versioning.Http.dll
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versioning.Mvc.dll
+D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

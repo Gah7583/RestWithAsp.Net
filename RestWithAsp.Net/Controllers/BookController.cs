@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAsp.Net.Business;
 using RestWithAsp.Net.Data.VO;
@@ -9,6 +10,7 @@ namespace RestWithAsp.Net.Controllers
     [Route("api/[controller]/v{version:ApiVersion}")]
     [ApiController]
     [ApiVersion("1")]
+    [Authorize("Bearer")]
     public class BookController : Controller
     {
         private readonly IBookBusiness _bookBusiness;
@@ -19,6 +21,10 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<BookVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get() 
@@ -27,6 +33,10 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
@@ -37,6 +47,9 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] BookVO book)
@@ -46,6 +59,9 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)] 
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] BookVO book)
@@ -55,6 +71,9 @@ namespace RestWithAsp.Net.Controllers
         }
 
         [HttpDelete]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         public IActionResult Delete(int id)
         {

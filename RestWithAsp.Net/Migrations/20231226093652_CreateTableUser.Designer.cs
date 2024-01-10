@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestWithAsp.Net.Model.Context;
 
@@ -11,9 +12,11 @@ using RestWithAsp.Net.Model.Context;
 namespace RestWithAsp.Net.Migrations
 {
     [DbContext(typeof(RestWithAspDotNetContext))]
-    partial class RestWithAspDotNetContextModelSnapshot : ModelSnapshot
+    [Migration("20231226093652_CreateTableUser")]
+    partial class CreateTableUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,6 +202,7 @@ namespace RestWithAsp.Net.Migrations
                         .HasColumnName("Password");
 
                     b.Property<string>("RefreshToken")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Refresh Token");
 
