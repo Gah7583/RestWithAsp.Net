@@ -28,5 +28,9 @@ namespace RestWithAsp.Net.Model
         [Required]
         [StringLength(6)]
         public string Gender { get; set; }
+
+        [Column("Enabled")]
+        [Required]
+        public bool Enabled { get; set; } = true;
     }
 }

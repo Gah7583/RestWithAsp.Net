@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Routing;
 using RestWithAsp.Net.Hypermedia.Abstract;
+using RestWithAsp.Net.Hypermedia.Utils;
 using System.Collections.Concurrent;
 
 namespace RestWithAsp.Net.Hypermedia
@@ -43,6 +44,10 @@ namespace RestWithAsp.Net.Hypermedia
                     {
                         EnrichModel(element, urlHelper);
                     });
+                }
+                else if (okObjectResult.Value is PageSearchVO<T> pagedSearch)
+                {
+                    Parallel.ForEach(pagedSearch.List.ToList(), (element) => EnrichModel(element, urlHelper));
                 }
             }
             await Task.FromResult<object>(null);
