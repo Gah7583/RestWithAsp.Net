@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ujHacvp4GOrM22ernIiBROTz/+Ucx1yCeUXu27EuQIr6b/303b1eYVUrne252KP1MrkLxcpmedQNI7PAfV/sBQ==",
+  "dgSpecHash": "XDl4KYaLBteO0j+A5MweucI+dLvkvMl1usFtsbKLjOdmz4Q+4VNyDzag8TEMQynSKJO1jrHwYCd3FQ+IRRbiSg==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\projsDev\\RestWithAsp.Net\\RestWithAsp.Net\\RestWithAsp.Net.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\INFO\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\INFO\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\INFO\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\INFO\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512",
     "C:\\Users\\INFO\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\INFO\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\INFO\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",

@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    environment:
+      TZ: America/Sao_Paulo
+      SA_PASSWORD: YourStrongPassword!
+      ACCEPT_EULA: Y
+      MSSQL_PID:
+      MSSQL_COLLATION: SQL_Latin1_General_CP1_CS_AS
+      MSSQL_DATABASE: RestWithAspDotNetDB
+    ports:
+      - 4022:1433
+    networks:
+      - rest-with-asp-net-network
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+  rest-with-asp-net:
+    image: rest-with-asp-net
+    build:
+      context: .
+      dockerfile: RestWithAsp.Net\Dockerfile
+    environment:
+      TZ: America/Sao_Paulo
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 7267:80
+    depends_on:
+      - db
+    networks:
+      - rest-with-asp-net-network
+volumes:
+  mydbdata:
+networks:
+  rest-with-asp-net-network:
+    driver: bridge
