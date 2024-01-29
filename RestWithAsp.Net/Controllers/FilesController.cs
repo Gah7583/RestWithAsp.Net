@@ -10,11 +10,11 @@ namespace RestWithAsp.Net.Controllers
     [ApiController]
     [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class FileController : ControllerBase
+    public class FilesController : ControllerBase
     {
         private readonly IFileBusiness _fileBusiness;
 
-        public FileController(IFileBusiness fileBusiness)
+        public FilesController(IFileBusiness fileBusiness)
         {
             _fileBusiness = fileBusiness;
         }

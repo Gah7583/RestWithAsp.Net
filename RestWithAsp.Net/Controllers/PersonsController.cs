@@ -11,11 +11,11 @@ namespace RestWithAsp.Net.Controllers
     [ApiController]
     [ApiVersion("1")]
     [Authorize("Bearer")]
-    public class PersonController : ControllerBase
+    public class PersonsController : ControllerBase
     {
         private readonly IPersonBusiness _personBusiness;
 
-        public PersonController(IPersonBusiness personService)
+        public PersonsController(IPersonBusiness personService)
         {
             _personBusiness = personService;
         }

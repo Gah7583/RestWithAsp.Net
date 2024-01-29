@@ -24,7 +24,7 @@ namespace RestWithAsp.Net.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        public PageSearchVO<PersonVO> FindWithPagedSearch(string name, string sortDirection, int pageSize, int page)
+        public PageSearchVO<PersonVO> FindWithPagedSearch(string? name, string sortDirection, int pageSize, int page)
         {
             var sort = !string.IsNullOrWhiteSpace(sortDirection) && !sortDirection.Equals("desc") ? "asc" : "desc";
             var size = pageSize < 1 ? 10 : pageSize;

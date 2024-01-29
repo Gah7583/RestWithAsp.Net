@@ -11,11 +11,11 @@ namespace RestWithAsp.Net.Controllers
     [ApiController]
     [ApiVersion("1")]
     [Authorize("Bearer")]
-    public class BookController : Controller
+    public class BooksController : Controller
     {
         private readonly IBookBusiness _bookBusiness;
 
-        public BookController(IBookBusiness bookBusiness)
+        public BooksController(IBookBusiness bookBusiness)
         {
             _bookBusiness = bookBusiness;
         }

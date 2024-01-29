@@ -78,3 +78,4 @@ D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versio
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versioning.Http.dll
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Asp.Versioning.Mvc.dll
 D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projetos\projsDev\RestWithAsp.Net\RestWithAsp.Net\obj\Debug\net7.0\RestWithAsp.Net.sourcelink.json
