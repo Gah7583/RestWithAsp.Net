@@ -31,7 +31,7 @@ namespace RestWithAsp.Net.Business.Implementations
             var offset = page > 0 ? (page - 1) * size : 0;
 
             string query = @"SELECT * FROM PERSONS P WHERE 1 = 1";
-            if (!string.IsNullOrWhiteSpace(name)) query += $"AND P.[FIRST NAME] LIKE '%{name}%'";
+            if (!string.IsNullOrWhiteSpace(name)) query += $" AND P.[FIRST NAME] LIKE '%{name}%'";
             query += $" ORDER BY P.[FIRST NAME] {sort} OFFSET {offset} ROWS FETCH NEXT {size} ROWS ONLY";
 
             string countQuery = @"SELECT COUNT(*) FROM PERSONS P WHERE 1 = 1";
