@@ -30,7 +30,7 @@ namespace RestWithAsp.Net.Business.Implementations
             _repository.Delete(id);
         }
 
-        public PageSearchVO<BookVO> FindWithPagedSearch(string title, string sortDirection, int pageSize, int page)
+        public PageSearchVO<BookVO> FindWithPagedSearch(string? title, string sortDirection, int pageSize, int page)
         {
             var sort = !string.IsNullOrWhiteSpace(sortDirection) && !sortDirection.Equals("desc") ? "asc" : "desc";
             var size = pageSize < 1 ? 10 : pageSize;

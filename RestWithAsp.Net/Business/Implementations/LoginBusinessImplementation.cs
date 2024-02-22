@@ -28,8 +28,8 @@ namespace RestWithAsp.Net.Business.Implementations
             if (user == null) return null;
             var claims = new List<Claim> 
             {
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
+                new(JwtRegisteredClaimNames.UniqueName, user.UserName)
             };
             var acessToken = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();

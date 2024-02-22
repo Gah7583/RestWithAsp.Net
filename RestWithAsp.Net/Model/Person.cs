@@ -1,4 +1,5 @@
 ﻿using RestWithAsp.Net.Model.Base;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,7 +31,8 @@ namespace RestWithAsp.Net.Model
         public string Gender { get; set; }
 
         [Column("Enabled")]
+        [DefaultValue (true)]
         [Required]
-        public bool Enabled { get; set; } = true;
+        public bool Enabled { get; set; }
     }
 }

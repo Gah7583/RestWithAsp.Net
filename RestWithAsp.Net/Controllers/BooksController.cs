@@ -27,10 +27,7 @@ namespace RestWithAsp.Net.Controllers
         [ProducesResponseType(401)]
         [MapToApiVersion("1")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Get([FromQuery] string title,
-            string sortDirection,
-            int pageSize,
-            int page) 
+        public IActionResult Get([FromQuery] string? title, string sortDirection, int pageSize, int page) 
         {
             return Ok(_bookBusiness.FindWithPagedSearch(title, sortDirection, pageSize, page));
         }

@@ -10,6 +10,6 @@ namespace RestWithAsp.Net.Data.VO
         public string Author { get; set; }
         public DateTime LaunchDate { get; set; }
         public decimal Price { get; set; }
-        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
+        public List<HyperMediaLink>? Links { get; set; } = new List<HyperMediaLink>();
     }
 }

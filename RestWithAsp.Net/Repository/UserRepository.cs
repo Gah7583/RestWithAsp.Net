@@ -34,7 +34,7 @@ namespace RestWithAsp.Net.Repository
             return true;
         }
 
-        private string ComputeHash(string input, HashAlgorithm hashAlgorithm)
+        private static string ComputeHash(string input, HashAlgorithm hashAlgorithm)
         {
             byte[] hashedBytes = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
             var sBuilder = new StringBuilder();
