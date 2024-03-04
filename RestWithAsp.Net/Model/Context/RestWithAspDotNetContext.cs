@@ -9,6 +9,18 @@ namespace RestWithAsp.Net.Model.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    FullName = "Admin",
+                    UserName = "Admin",
+                    Password = "admin123",
+                    RefreshToken = null,
+                    RefreshTokenExpiryTime = DateTime.UtcNow
+                }
+                );
+
             modelBuilder.Entity<Person>().HasData(
                 new Person
                 {
